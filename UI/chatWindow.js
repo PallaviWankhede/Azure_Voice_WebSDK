@@ -511,16 +511,6 @@
                     text = obj.message[0].cInfo.body
 		if(formdata){
                         text = "Please fill out the form manually"
-                        $('.recordingMicrophone').css('display', 'none'); // pallavi-mic
-                        $('.notRecordingMicrophone').css('display', 'block'); // pallavi-mic
-                        //pallavi-mic
-                        if (window.currentSpeechRecognizer) {
-                            window.currentSpeechRecognizer.stopContinuousRecognitionAsync(() => {
-                                console.log("Speech Recognizer Stopped.");
-                                window.currentSpeechRecognizer = null;
-                            });
-                        }
-                        //pallavi-mic
                     }
 		else{
                     switch (type) {
@@ -536,28 +526,18 @@
                             // let text_dropdown_template = payload.buttons.map(item => item.title).join(', ');
                             // text += `Options  ${text_dropdown_template}`
                             text = 'Please select the value manually'
-                            ('.recordingMicrophone').css('display', 'none'); // pallavi-mic
-                            $('.notRecordingMicrophone').css('display', 'block'); // pallavi-mic
                             break;
                         case 'multi_select':
                             text = 'Please select the options manually'
-                            ('.recordingMicrophone').css('display', 'none'); // pallavi-mic
-                            $('.notRecordingMicrophone').css('display', 'block'); // pallavi-mic
                             break  
                         case 'carousel':
                             text = 'Please select the options manually'
-                            ('.recordingMicrophone').css('display', 'none'); // pallavi-mic
-                            $('.notRecordingMicrophone').css('display', 'block'); // pallavi-mic
                             break 
                         case 'countryDropdownTemplate':
                             text = 'Please select the options manually'
-                            ('.recordingMicrophone').css('display', 'none'); // pallavi-mic
-                            $('.notRecordingMicrophone').css('display', 'block'); // pallavi-mic
                             break
                         case 'insuranceTemplate':
                             text = 'Please select the options manually'
-                            ('.recordingMicrophone').css('display', 'none'); // pallavi-mic
-                            $('.notRecordingMicrophone').css('display', 'block'); // pallavi-mic
                             break
                         default:
                             break;
