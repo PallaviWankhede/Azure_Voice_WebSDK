@@ -92,7 +92,7 @@
                 window.currentSpeechRecognizer.stopContinuousRecognitionAsync(() => {
                     console.log("Previous Speech Recognizer Stopped.");
                     window.currentSpeechRecognizer = null;
-                });
+                }); 
             }
             //pallavi-mic
             // Initialize Azure Speech SDK with subscription key and region
