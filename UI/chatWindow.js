@@ -509,7 +509,9 @@
                     let type = payload.template_type ?? null
 		    let formdata = obj.message[0].component.formData
                     text = obj.message[0].cInfo.body
+		    window.formvalue = false; //pallavi form
 		if(formdata){
+			window.formvalue = true; //pallavi form
                         text = "Please fill out the form manually"
                     }
 		else{
