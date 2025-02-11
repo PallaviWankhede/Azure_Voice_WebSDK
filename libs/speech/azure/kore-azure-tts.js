@@ -336,6 +336,7 @@
         console.log("payload", payload);
         let templateType = payload?.template_type ?? null;
         console.log("templateType", templateType);
+        console.log("window.formvalue", window.formvalue); //pallavi form
     
         let disableMicTemplates = [
             "dropdown_template",
@@ -345,7 +346,7 @@
             "insuranceTemplate"
         ];
     
-        if (disableMicTemplates.includes(templateType)) {
+        if (disableMicTemplates.includes(templateType) || window.formvalue) {
             manual = true;
             console.log("Mic will remain OFF due to template type:", templateType);
         }
@@ -390,6 +391,7 @@
                             console.log("TTS finished, activating STT..."); //pallavi-mic
                             window.recognizeSpeechWithAzure(); //pallavi-mic
                         }
+                        isPlaying = false; // pallavi form
                         //pallavi-mic
                         // if(isPlaying = false){
                         //     console.log("TTS finished, activating STT..."); 
