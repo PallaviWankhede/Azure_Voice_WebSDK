@@ -357,7 +357,6 @@
         synthesizer.speakTextAsync(
             audioMessages.shift(),
             result => {
-                console.log("In function speechSynthesisVoice",speechConfig.speechSynthesisVoice);
                 console.log("In function speakTextAsync");
                 if (result) {
                     console.log("In if result");
