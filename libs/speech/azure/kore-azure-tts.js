@@ -237,7 +237,78 @@
         }
     }
 
-    function speakMsgs() {
+    // function speakMsgs() {
+    //     console.log("In function speakMsgs");
+    //     isPlaying = true;
+    //     console.log("In audiomsgs", audioMessages);
+    //     synthesizer.speakTextAsync(
+    //         audioMessages.shift(),
+    //         result => {
+    //             console.log("In function speakTextAsync");
+    //             if (result) {
+    //                 console.log("In if result");
+    //                 console.log("Speech synthesis succeeded for audiomessages:", audioMessages);
+    //                 audioStatus = 'idle';
+                    
+    //             }
+    //             audioContext.decodeAudioData(result.audioData, (buffer) => {
+    //                 bufferSource = audioContext.createBufferSource();
+    //                 console.log("bufferSource", bufferSource);
+    //                 bufferSource.buffer = buffer;
+    //                 bufferSource.connect(audioContext.destination);
+    //                 bufferSource.start(0);
+    //                 bufferSource.onended = () => {
+    //                     if (audioMessages.length > 0) {
+    //                         console.log("Hitting speakmsg in audiomsgs.length");
+    //                         speakMsgs();
+    //                     } else if (isPlaying) {
+    //                         isPlaying = false;
+    //                         console.log("TTS finished, activating STT..."); //pallavi-mic
+    //                         window.recognizeSpeechWithAzure(); //pallavi-mic
+    //                     }
+    //                     //pallavi-mic
+    //                     // if(isPlaying = false){
+    //                     //     console.log("TTS finished, activating STT..."); 
+    //                     //     window.recognizeSpeechWithAzure();
+    //                     // }
+    //                     //pallavi-mic
+    //                 }
+    //             })
+    //         },
+    //         error => {
+    //             console.error("Speech synthesis failed:", error);
+    //             audioStatus = 'idle';
+    //         }
+    //     );
+    // }
+
+        function speakMsgs() {
+        //pallavi new
+        var manual = false;
+        console.log("msgData", msgData);
+        let firsttextt = msgData.message[0].cInfo.body;
+        console.log("firsttext", firsttextt);
+        // Check if `template_type` exists and matches the ones where mic should be off
+        let payload = msgData.message[0].component?.payload;
+        console.log("payload", payload);
+        let templateType = payload?.template_type ?? null;
+        console.log("templateType", templateType);
+    
+        let disableMicTemplates = [
+            "dropdown_template",
+            "multi_select",
+            "carousel",
+            "countryDropdownTemplate",
+            "insuranceTemplate"
+        ];
+    
+        if (disableMicTemplates.includes(templateType)) {
+            manual = true;
+            console.log("Mic will remain OFF due to template type:", templateType);
+        }
+    
+        //pallavi new
+
         console.log("In function speakMsgs");
         isPlaying = true;
         console.log("In audiomsgs", audioMessages);
@@ -261,7 +332,7 @@
                         if (audioMessages.length > 0) {
                             console.log("Hitting speakmsg in audiomsgs.length");
                             speakMsgs();
-                        } else if (isPlaying) {
+                        } else if(isPlaying && !manual) {
                             isPlaying = false;
                             console.log("TTS finished, activating STT..."); //pallavi-mic
                             window.recognizeSpeechWithAzure(); //pallavi-mic
@@ -281,6 +352,7 @@
             }
         );
     }
+
 
     // Speak text using Azure TTS
     window.speakTextWithAzure = function (textToSpeak) {
