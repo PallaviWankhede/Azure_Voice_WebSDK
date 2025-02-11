@@ -261,7 +261,7 @@
                         if (audioMessages.length > 0) {
                             console.log("Hitting speakmsg in audiomsgs.length");
                             speakMsgs();
-                        } else {
+                        } else if (isPlaying) {
                             isPlaying = false;
                             console.log("TTS finished, activating STT..."); //pallavi-mic
                             window.recognizeSpeechWithAzure(); //pallavi-mic
