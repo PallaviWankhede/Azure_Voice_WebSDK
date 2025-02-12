@@ -26,6 +26,31 @@
         }
     }
 
+    // RMM Pallavi
+    function requestMicrophonePermission() {
+        if (hasMicPermission) {
+            console.log("Microphone permission already granted.");
+            return; // Avoid unnecessary re-prompt
+        }
+    
+        if (isIOS() && !hasMicPermission) {
+            alert("Microphone permission is required. Please enable it in Settings > Safari > Microphone.");
+        } else {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then((stream) => {
+                    stream.getTracks().forEach(track => track.stop());
+                    hasMicPermission = true; 
+                    console.log("Microphone permission granted.");
+                    updateUI();
+                })
+                .catch(error => {
+                    console.error('Microphone permission denied:', error);
+                    alert('Microphone permission is required for this feature.');
+                });
+        }
+    }
+    // RMM Pallavi
+
     // Stop speaking
     window.stopSpeakingAzureSTT = function() {
         console.log("In window stopSpeakingAzureSTT");
