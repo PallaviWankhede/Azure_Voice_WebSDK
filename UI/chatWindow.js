@@ -1800,6 +1800,16 @@
                         minWidth: 480
                     });
                 _chatContainer.off('keyup', '.chatInputBox').on('keyup', '.chatInputBox', function (event) {
+		    //pallu 2
+                    if (window.currentSpeechRecognizer) {
+                        window.currentSpeechRecognizer.stopContinuousRecognitionAsync(() => {
+                            console.log("Speech Recognizer Stopped.");
+                            window.currentSpeechRecognizer = null;
+                        });
+                    }
+                    $('.recordingMicrophone').css('display', 'none');
+                    $('.notRecordingMicrophone').css('display', 'block');
+                    //pallu 2
                     var _footerContainer = $(me.config.container).find('.kore-chat-footer');
                     var _bodyContainer = $(me.config.container).find('.kore-chat-body');
                     _bodyContainer.css('bottom', _footerContainer.outerHeight());
@@ -1873,6 +1883,16 @@
                     });
                 });*/
                 _chatContainer.off('keydown', '.chatInputBox').on('keydown', '.chatInputBox', function (event) {
+		    //pallu 2
+                    if (window.currentSpeechRecognizer) {
+                        window.currentSpeechRecognizer.stopContinuousRecognitionAsync(() => {
+                            console.log("Speech Recognizer Stopped.");
+                            window.currentSpeechRecognizer = null;
+                        });
+                    }
+                    $('.recordingMicrophone').css('display', 'none');
+                    $('.notRecordingMicrophone').css('display', 'block');
+                    //pallu 2
                     var _this = $(this);
                     var _footerContainer = $(me.config.container).find('.kore-chat-footer');
                     var _bodyContainer = $(me.config.container).find('.kore-chat-body');
@@ -2421,6 +2441,16 @@
                     korePicker.init();
                  }
                 $(document).on('keyup', function (evt) {
+		    //pallu 2
+                    if (window.currentSpeechRecognizer) {
+                        window.currentSpeechRecognizer.stopContinuousRecognitionAsync(() => {
+                            console.log("Speech Recognizer Stopped.");
+                            window.currentSpeechRecognizer = null;
+                        });
+                    }
+                    $('.recordingMicrophone').css('display', 'none');
+                    $('.notRecordingMicrophone').css('display', 'block');
+                    //pallu 2
                     if (evt.keyCode == 27) {
                         $('.closeImagePreview').trigger('click');
                         $('.closeElePreview').trigger('click');
@@ -5675,6 +5705,10 @@
                     $('.notRecordingMicrophone').css('display', 'none'); 
                     console.log("Mic ON: Session Started");
                     window.recognizeSpeechWithAzure()
+		    // pallu 2
+                    console.log("Hitting new stopSpeakingAzureTTS");
+                    window.stopSpeakingAzureTTS();
+                    // pallu 2
                 } else if(chatInitialize.config.stt.vendor === 'google'){
                     // using google cloud speech API
                     micEnable();
