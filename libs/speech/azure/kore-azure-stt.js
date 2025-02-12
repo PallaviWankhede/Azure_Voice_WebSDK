@@ -117,6 +117,11 @@
 
     // pallavi-azure
     window.recognizeSpeechWithAzure = function() {
+        // RMM Pallavi Request only if not granted
+        if (!hasMicPermission && isIOS()) {
+            requestMicrophonePermission(); 
+        }
+        // RMM Pallavi Request only if not granted
         console.log("In window.recognizeSpeechWithAzure");
     
         try {
