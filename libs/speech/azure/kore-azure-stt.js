@@ -163,6 +163,7 @@
                             // Send the recognized message
                             const me = window.chatContainerConfig;
                             me.sendMessage($('.chatInputBox')); // Send the message
+                            document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc
 
                             // Reset variables
                             finalTranscript = '';
