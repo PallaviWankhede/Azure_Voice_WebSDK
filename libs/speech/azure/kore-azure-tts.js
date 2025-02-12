@@ -50,8 +50,6 @@
             synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig, audioConfig);
 
             console.log("Azure TTS initialized successfully.");
-            // Fetch and print all available voices
-            // listAllAvailableVoices();
         } catch (error) {
             console.error("Azure TTS initialization failed:", error);
         }
@@ -126,7 +124,7 @@
         //pallavi new
         var manual = false;
         console.log("msgData", msgData);
-        listAllAvailableVoices();  //pallavi new for now commented
+        // listAllAvailableVoices();  //pallavi new for now commented
         let firsttextt = msgData.message[0].cInfo.body;
         console.log("firsttext", firsttextt);
         // Check if `template_type` exists and matches the ones where mic should be off
