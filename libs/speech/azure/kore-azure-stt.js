@@ -7,6 +7,14 @@
     var player;
     var speechRecognizer;
     let hasMicPermission = false; // RMM Pallavi
+
+    // RMM Pallavi Detect if the device is iOS
+     function isIOS() {
+        var iosvar = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        console.log("iosvar", iosvar);
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+    // RMM Pallavi Detect if the device is iOS
     
 
     // Initialize Azure STT
