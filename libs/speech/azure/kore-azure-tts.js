@@ -11,15 +11,15 @@
     var bufferSource;
     window.audioPlaying = false;
     window.audioMsgs = []; // Ensuring global access
-    let hasMicPermission = false; // Pallu
+    let hasMicPermission = false; // RMM Pallavi
 
-     // pallu
-    // Detect if the device is iOS
+    // RMM Pallavi Detect if the device is iOS
      function isIOS() {
         var iosvar = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         console.log("iosvar", iosvar);
         return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     }
+    // RMM Pallavi Detect if the device is iOS
 
     // Initialize Azure TTS
     function initAzureTTS() {
@@ -55,7 +55,7 @@
         }
     }
 
-    //RMM Pallavi: Create new function here
+    // RMM Pallavi
     function requestMicrophonePermission() {
         if (hasMicPermission) {
             console.log("Microphone permission already granted.");
@@ -78,6 +78,7 @@
                 });
         }
     }
+    // RMM Pallavi
 
     // pallavi new
     function listAllAvailableVoices() {
@@ -144,7 +145,7 @@
             "healthAddonTemplate",
             "checkBoxesTemplate"
         ];
-        // miccccc
+        // micccc
         if (firsttextt.includes("You're verified")) {
             manual = true;
             console.log("Mic will remain OFF because the message contains 'You're verified'");
@@ -206,6 +207,11 @@
 
     // Speak text using Azure TTS
     window.speakTextWithAzure = function (textToSpeak) {
+        // RMM Pallavi Request only if not granted
+        if (!hasMicPermission && isIOS()) {
+            requestMicrophonePermission(); 
+        }
+        // RMM Pallavi Request only if not granted
         console.log("In window.speakTextWithAzure textToSpeak", textToSpeak);
         audioMessages.push(textToSpeak);
         console.log("audioMessages after pushing", audioMessages);
@@ -246,9 +252,11 @@
 
     // Stop speaking function
     window.stopSpeakingAzureTTS = function () {
-        if (!hasMicPermission && isIOS()) {
-            requestMicrophonePermission(); // RMM Pallavi Request only if not granted
-        }
+        // // RMM Pallavi Request only if not granted
+        // if (!hasMicPermission && isIOS()) {
+        //     requestMicrophonePermission(); 
+        // }
+        // // RMM Pallavi Request only if not granted
         console.log("In window.stopSpeakingAzureTTS");
         console.warn('\n\n\n ---------------stopSpeakingAzureTTS-------')
         if (isPlaying) {
