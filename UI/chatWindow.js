@@ -531,7 +531,16 @@
                             break;
                         case 'multi_select':
                             text = 'Please select the options manually'
-                            break  
+                            break
+			case 'dateTemplate':
+                        	text = 'Please select the options manually'
+                        	break 
+                    	case 'healthAddonTemplate':
+                        	text = 'Please select the options manually'
+                        	break
+                    	case 'checkBoxesTemplate':
+                        	text = 'Please select the options manually'
+                        	break 
                         case 'carousel':
                             text = 'Please select the options manually'
                             break 
