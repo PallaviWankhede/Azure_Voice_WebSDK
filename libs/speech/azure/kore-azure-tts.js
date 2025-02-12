@@ -418,6 +418,7 @@
 
     // Speak text using Azure TTS
     window.speakTextWithAzure = function (textToSpeak) {
+        document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc
         console.log("In window.speakTextWithAzure textToSpeak", textToSpeak);
         audioMessages.push(textToSpeak);
         console.log("audioMessages after pushing", audioMessages);
