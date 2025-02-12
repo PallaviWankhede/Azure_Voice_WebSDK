@@ -337,14 +337,22 @@
         let templateType = payload?.template_type ?? null;
         console.log("templateType", templateType);
         console.log("window.formvalue", window.formvalue); //pallavi form
-    
+        // pallavi miccc
         let disableMicTemplates = [
             "dropdown_template",
             "multi_select",
             "carousel",
             "countryDropdownTemplate",
-            "insuranceTemplate"
+            "insuranceTemplate",
+            "dateTemplate",
+            "healthAddonTemplate",
+            "checkBoxesTemplate"
         ];
+        if (firsttextt.includes("You're verified") || firsttextt.includes("Please wait for a some time.") ) {
+            manual = true;
+            console.log("Mic will remain OFF because the message contains 'You're verified'");
+        }
+        // pallavi miccc
     
         if (disableMicTemplates.includes(templateType) || window.formvalue) {
             manual = true;
