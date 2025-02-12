@@ -79,16 +79,16 @@
 
         // pallavi-azure
         azureTTS: {
-            // key: '*****',
-            key: '*****',
+            // key: '1vuRCq8Nn72FJxDcLef5qExngH7MZPe8H36HNVN1W41dnrz6IAA9JQQJ99BAACGhslBXJ3w3AAAYACOGyzwM',
+            key: 'ea81bafd0787487c808e90e4dd006252',
             region: 'centralindia',
         },
         stt:{
             //vendor: 'webapi',           //'webapi'|'azure'|'google' //uses respective settings from the following keys and uncomments respective files in index.html
             vendor: 'azure',
             azure:{
-                // subscriptionKey: '*****',
-                subscriptionKey: '*****',
+                // subscriptionKey: '1vuRCq8Nn72FJxDcLef5qExngH7MZPe8H36HNVN1W41dnrz6IAA9JQQJ99BAACGhslBXJ3w3AAAYACOGyzwM',
+                subscriptionKey: 'ea81bafd0787487c808e90e4dd006252',
                 recognitionLanguage: 'en-US',
                 recognitionMode: 'Interactive' //Interactive/Dictation/Conversation/Interactive
             },
