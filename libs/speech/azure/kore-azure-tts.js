@@ -62,7 +62,7 @@
             return; // Avoid unnecessary re-prompt
         }
     
-        if (isIOS()) {
+        if (isIOS() && !hasMicPermission) {
             alert("Microphone permission is required. Please enable it in Settings > Safari > Microphone.");
         } else {
             navigator.mediaDevices.getUserMedia({ audio: true })
