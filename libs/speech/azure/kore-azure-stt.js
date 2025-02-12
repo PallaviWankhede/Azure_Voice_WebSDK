@@ -19,6 +19,7 @@
 
     // Initialize Azure STT
     function initAzureSTT() {
+        this.hasMicPermission = false; //RMM pallavi
         console.log(" In initAzureSTT");
         if (!window.KoreSDK.chatConfig.stt.azure.subscriptionKey) {
             console.error("Azure STT: API key is required");
