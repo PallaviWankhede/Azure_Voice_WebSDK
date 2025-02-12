@@ -11,15 +11,6 @@
     var bufferSource;
     window.audioPlaying = false;
     window.audioMsgs = []; // Ensuring global access
-    // let hasMicPermission = false; // RMM Pallavi
-
-    // RMM Pallavi Detect if the device is iOS
-    //  function isIOS() {
-    //     var iosvar = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    //     console.log("iosvar", iosvar);
-    //     return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    // }
-    // RMM Pallavi Detect if the device is iOS
 
     // Initialize Azure TTS
     function initAzureTTS() {
@@ -30,7 +21,6 @@
         }
 
         try {
-            // this.hasMicPermission = false; //RMM pallavi: Add condition here to turn on 
             speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
                 window.KoreSDK.chatConfig.azureTTS.key,
                 window.KoreSDK.chatConfig.azureTTS.region || 'centralindia'
@@ -54,31 +44,6 @@
             console.error("Azure TTS initialization failed:", error);
         }
     }
-
-    // RMM Pallavi
-    // function requestMicrophonePermission() {
-    //     if (hasMicPermission) {
-    //         console.log("Microphone permission already granted.");
-    //         return; // Avoid unnecessary re-prompt
-    //     }
-    
-    //     if (isIOS() && !hasMicPermission) {
-    //         alert("Microphone permission is required. Please enable it in Settings > Safari > Microphone.");
-    //     } else {
-    //         navigator.mediaDevices.getUserMedia({ audio: true })
-    //             .then((stream) => {
-    //                 stream.getTracks().forEach(track => track.stop());
-    //                 hasMicPermission = true; 
-    //                 console.log("Microphone permission granted.");
-    //                 updateUI();
-    //             })
-    //             .catch(error => {
-    //                 console.error('Microphone permission denied:', error);
-    //                 alert('Microphone permission is required for this feature.');
-    //             });
-    //     }
-    // }
-    // RMM Pallavi
 
     // pallavi new
     function listAllAvailableVoices() {
@@ -207,11 +172,6 @@
 
     // Speak text using Azure TTS
     window.speakTextWithAzure = function (textToSpeak) {
-        // RMM Pallavi Request only if not granted
-        // if (!hasMicPermission && isIOS()) {
-        //     requestMicrophonePermission(); 
-        // }
-        // RMM Pallavi Request only if not granted
         console.log("In window.speakTextWithAzure textToSpeak", textToSpeak);
         audioMessages.push(textToSpeak);
         console.log("audioMessages after pushing", audioMessages);
