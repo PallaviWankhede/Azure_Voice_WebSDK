@@ -163,7 +163,6 @@
                             // Send the recognized message
                             const me = window.chatContainerConfig;
                             me.sendMessage($('.chatInputBox')); // Send the message
-                            document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc
 
                             // Reset variables
                             finalTranscript = '';
@@ -175,6 +174,7 @@
                             speechRecognizer.stopContinuousRecognitionAsync(() => {
                                 console.log("Speech Recognizer Stopped.");
                                 window.currentSpeechRecognizer = null;
+                                document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc
                             });
                             //pallavi-mic
                         }
@@ -189,6 +189,7 @@
                 console.log("Mic OFF: Session Stopped");
                 $('.recordingMicrophone').css('display', 'none');
                 $('.notRecordingMicrophone').css('display', 'block');
+                document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc
                 if (e.reason === SpeechSDK.CancellationReason.Error) {
                     text = "Error: " + e.errorDetails;
                 }
@@ -203,6 +204,7 @@
                 $('.notRecordingMicrophone').css('display', 'block');
                 speechRecognizer.stopContinuousRecognitionAsync();
                 window.currentSpeechRecognizer = null; // pallavi-mic
+                document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc
             };
     
         } catch (error) {
