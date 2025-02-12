@@ -515,7 +515,7 @@
             audioStatus = 'speaking';
             speakMsgs();
         }
-
+    };
     // Stop speaking function
     window.stopSpeakingAzureTTS = function () {
         if (!hasMicPermission && isIOS()) {
