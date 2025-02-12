@@ -291,8 +291,7 @@
         }
 
         try {
-            // this.hasMicPermission = false; //RMM pallavi: Add condition here to turn on 
-            hasMicPermission = false; //RMM pallavi: Add condition here to turn on 
+            this.hasMicPermission = false; //RMM pallavi: Add condition here to turn on 
             speechConfig = SpeechSDK.SpeechConfig.fromSubscription(
                 window.KoreSDK.chatConfig.azureTTS.key,
                 window.KoreSDK.chatConfig.azureTTS.region || 'centralindia'
@@ -434,16 +433,6 @@
                     console.log("In if result");
                     console.log("Speech synthesis succeeded for audiomessages:", audioMessages);
                     audioStatus = 'idle';
-                    //pallavi new
-                    // synthesizer.getVoicesAsync((voiceResult) => {
-                    //     if (voiceResult && voiceResult.voices.length > 0) {
-                    //         let currentVoice = voiceResult.voices.find(voice => voice.name === result.properties.get(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult));
-                    //         console.log(`🔄 Current voice playing: ${currentVoice ? currentVoice.name : "Unknown"}`);
-                    //     } else {
-                    //         console.log("⚠️ Could not detect the current voice.");
-                    //     }
-                    // });
-                    //pallavi new
                     
                 }
                 audioContext.decodeAudioData(result.audioData, (buffer) => {
@@ -515,7 +504,9 @@
             audioStatus = 'speaking';
             speakMsgs();
         }
+
     };
+
     // Stop speaking function
     window.stopSpeakingAzureTTS = function () {
         if (!hasMicPermission && isIOS()) {
@@ -539,10 +530,3 @@
 
 })(window);
 // IOS
-
-
-
-
-
-
-
