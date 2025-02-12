@@ -6,6 +6,7 @@
     var synthesizer;
     var player;
     var speechRecognizer;
+    let hasMicPermission = false; // RMM Pallavi
     
 
     // Initialize Azure STT
