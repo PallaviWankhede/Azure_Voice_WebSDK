@@ -163,6 +163,7 @@
                             // Send the recognized message
                             const me = window.chatContainerConfig;
                             me.sendMessage($('.chatInputBox')); // Send the message
+                            document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc pallu 2
 
                             // Reset variables
                             finalTranscript = '';
@@ -174,7 +175,6 @@
                             speechRecognizer.stopContinuousRecognitionAsync(() => {
                                 console.log("Speech Recognizer Stopped.");
                                 window.currentSpeechRecognizer = null;
-                                document.querySelector('.chatInputBox').innerHTML = ""; // pallavi micccc
                             });
                             //pallavi-mic
                         }
