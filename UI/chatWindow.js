@@ -2521,6 +2521,10 @@
                     }
                     window.stopSpeakingAzureTTS();  // Stop Azure TTS
                     console.log("Azure TTS stopped successfully.");
+		    //pallavi clear input in chatbox on reload
+                    $('.chatInputBox').text('');  // For div-based input
+                    $('.chatInputBox').val('');   // In case it's an input/textarea
+                    //pallavi clear input in chatbox on reload
                     //pallavi-mic
 
                     chatInitialize.stopSpeaking();
