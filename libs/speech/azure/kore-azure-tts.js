@@ -108,7 +108,8 @@
             "insuranceTemplate",
             "dateTemplate",
             "healthAddonTemplate",
-            "checkBoxesTemplate"
+            "checkBoxesTemplate",
+            "calendarDropdown"
         ];
         // micccc
         if (firsttextt.includes("You're verified")) {
