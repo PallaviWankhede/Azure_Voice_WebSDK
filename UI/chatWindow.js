@@ -1823,6 +1823,18 @@
                         _chatContainer.find('.sendButton').addClass('disabled');
                     }
                 });
+		//anurag 12/02
+                $(document).on("change", ".startDate", function () {
+                    var selectedDate = $(this).val();
+                    var messageId = $(this).data("messageid");
+                    console.log("User selected date:", selectedDate);
+                    // Automatically send the selected date as user input
+                    $(".chatInputBox").text(selectedDate);
+                    var enterKey = $.Event("keydown", { which: 13 });
+                    enterKey.keyCode = 13;
+                    $(".chatInputBox").trigger(enterKey);
+                });
+                //end enurag 12/02
                 _chatContainer.on('click', '.chatInputBoxPlaceholder', function (event) {
                     _chatContainer.find('.chatInputBox').trigger('click');
                     _chatContainer.find('.chatInputBox').trigger('focus');
