@@ -276,6 +276,15 @@
 			});
 		}
 		// hoonartek customization for travel country selection ends end
+
+		// calendardropdown
+		else if (msgData.message[0] && msgData.message[0].component && msgData.message[0].component.payload && msgData.message[0].component.payload.template_type == "calendarDropdown") {
+            messageHtml = $(this.getChatTemplate("calendarDropdown")).tmpl({
+                'msgData': msgData,
+                'helpers': this.helpers,
+                'extension': this.extension
+             });
+         }
 			
 		else if (msgData.message[0] && msgData.message[0].component && msgData.message[0].component.payload && msgData.message[0].component.payload.template_type == "otpValidationTemplate") {
             messageHtml = $(this.getChatTemplate("otpValidationTemplate")).tmpl({
