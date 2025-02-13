@@ -538,6 +538,9 @@
                     	case 'healthAddonTemplate':
                         	text = 'Please select the options manually'
                         	break
+			case 'calendarDropdown':
+                        	text = 'Please select the options manually'
+                        	break
                     	case 'checkBoxesTemplate':
                         	text = 'Please select the options manually'
                         	break 
