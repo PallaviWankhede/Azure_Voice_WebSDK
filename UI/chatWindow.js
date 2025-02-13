@@ -3186,6 +3186,14 @@
                         }).length;
                         sessionStorage.setItem('sdc', checkedCount);
                     }
+		    //Anurag 12/02 Calender
+                    if(msgData.message[0]?.component?.payload?.template_type == 'calendarDropdown'){
+                        $(".startDate").prop("disabled", false);
+                    }
+                    else{
+                        $(".startDate").prop("disabled", true);
+                    }
+                    //Anurag 12/02 end calender
                     if(msgData.message[0]?.component?.payload?.template_type == 'table'){
                         let plainObj=JSON.stringify(msgData.message[0].component.payload.elements);
                         plainObj = plainObj.replaceAll(null,'""');
