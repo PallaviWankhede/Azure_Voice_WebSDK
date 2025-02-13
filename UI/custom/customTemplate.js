@@ -496,8 +496,30 @@
 		// };
 		 
 		// print(JSON.stringify(message));
-
-
+		
+                // Anurag 12/02
+		var calendarDropdown = '<script id="calendar_dropdown_tmpl" type="text/x-jquery-tmpl"> \
+		   {{if msgData.message}} \
+		    <li {{if msgData.type !== "bot_response"}} id="msg_${msgItem.clientMessageId}"{{/if}} class="{{if msgData.type === "bot_response"}}fromOtherUsers{{else}}fromCurrentUser{{/if}} with-icon"> \
+		     <div class="buttonTmplContent"> \
+		      {{if msgData.icon}}<div class="profile-photo"> <div class="user-account avtar" style="background-image:url(${msgData.icon})"></div></div> {{/if}} \
+		      <div class="{{if msgData.message[0].component.payload.fromHistory}} dummy messageBubble {{else}}messageBubble{{/if}}"> \
+		       {{if msgData.message[0].component.payload.heading}}<div class="templateHeading">${msgData.message[0].component.payload.heading}</div>{{/if}} \
+		       <div class="dateRangePicker"> \
+		        <input type="date" class="startDate" value="${msgData.message[0].component.payload.date_range.start_date}" data-messageid="${msgData.messageId}" /> \
+		       </div> \
+		      </div> \
+		     </div> \
+		    </li> \
+		   {{/if}} \
+		   {{if msgData.createdOn}} \
+		    <div aria-live="off" class="extra-info" style="margin-right: 15px; margin-top: -10px; margin-bottom: 3px; margin-left: 48px; font-size: 12px; color: #8a959f;"> \
+		     ${helpers.formatDate(msgData.createdOn)} \
+		    </div> \
+		   {{/if}} \
+		  </script>';
+		  // Anurag 12/02
+		 
 		// hoonartek customization for prechecked option script
 	// hoonartek customization for by default selected By online policy
 	// var checkBoxesTemplate =  '<script id="chat_message_tmpl" type="text/x-jqury-tmpl"> \
@@ -3690,6 +3712,11 @@ var countryDropdownTemplate = '<script id="chat_message_multiselect_tmpl" type="
             		return countryDropdownTemplate;
 		}
 		// hoonartek customization for travel countries ends end
+		//Anurag 12/02/2024
+		else if(tempType === "calendarDropdown"){
+            		return calendarDropdown;
+        	}
+		//Anurag 12/02/2024
 		else if(tempType === "formTemplate"){
             		return formTemplate;
 		} else if (tempType === "advancedMultiSelect") {
