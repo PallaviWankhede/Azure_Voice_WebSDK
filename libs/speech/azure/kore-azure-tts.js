@@ -154,7 +154,7 @@
                             console.log("TTS finished, activating STT..."); //pallavi-mic
                             window.recognizeSpeechWithAzure(); //pallavi-mic
                         }
-                        isPlaying = false; // pallavi form NOT CONFIRMED
+                        // isPlaying = false; // pallavi form NOT CONFIRMED
                         //pallavi-mic
                         // if(isPlaying = false){
                         //     console.log("TTS finished, activating STT..."); 
