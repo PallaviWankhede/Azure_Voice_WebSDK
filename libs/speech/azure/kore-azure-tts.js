@@ -116,6 +116,15 @@
             manual = true;
             console.log("Mic will remain OFF because the message contains 'You're verified'");
         }
+        if (firsttextt.includes("Please wait for a moment")) {
+            manual = true;
+            console.log("Mic will remain OFF because the message contains 'You're verified'");
+        }
+        if (firsttextt.includes("It seems like there are no agents that can help you at this time.")) {
+            manual = true;
+            console.log("Mic will remain OFF because the message contains 'You're verified'");
+        }
+
         // miccccc
         // pallavi form
         if (disableMicTemplates.includes(templateType) || window.formvalue) {
