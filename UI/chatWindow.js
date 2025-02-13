@@ -1826,7 +1826,7 @@
                         _chatContainer.find('.sendButton').addClass('disabled');
                     }
                 });
-		//anurag 12/02
+		//anurag calendarDropdown 12/02
                 $(document).on("change", ".startDate", function () {
                     var selectedDate = $(this).val();
                     var messageId = $(this).data("messageid");
