@@ -578,7 +578,7 @@
                         }).replace(/<\/?b>/g, '')
                         text = text.replace(/\b\d{6,7}\b/g, match => readDigitsSeparately(match));
                         text = text.replace(/\b\d{18}\b/g, match => readDigitsSeparately(match)); //policy number read sep
-		    	text = text.replace(/[😄😊✈️🚗]/g, '', match => readDigitsSeparately(match)); //for emoji prompt
+		    	text = text.replace(/[⬅️😄😊✈️🚗]/g, '', match => readDigitsSeparately(match)); //for emoji prompt
                 text = text.replace(/\//g, ' '); //pallavi forward slash
 		        text = text.replace(/\be\.g\./gi, 'Example'); // pallavi Replaces "e.g." with "Example"
                 return text;
