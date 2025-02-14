@@ -29,6 +29,7 @@
             // ✅ Set voice explicitly
             // speechConfig.speechSynthesisVoiceName = "en-US-DavisNeural"; //pallavi new
             speechConfig.speechSynthesisVoiceName = "en-US-EmmaNeural"; //pallavi new
+            // speechConfig.speechSynthesisVoiceName = "en-IN-AartiNeural"; //pallavi new
 
             audioContext = new AudioContext();
             // player = new SpeechSDK.SpeakerAudioDestination();
@@ -124,7 +125,6 @@
             manual = true;
             console.log("Mic will remain OFF because the message contains 'You're verified'");
         }
-
         // miccccc
         // pallavi form
         if (disableMicTemplates.includes(templateType) || window.formvalue) {
